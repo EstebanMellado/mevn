@@ -42,4 +42,23 @@ router.get('/notas', async (req, res) => {
     }
 });
 
+router.delete('/nota/:id', async (req, res) => {
+    const notaId = req.params.id;
+    try {
+        const notaDb = await Nota.findByIdAndDelete({ _id: notaId });
+        if (!notaDb) {
+            res.status(400).json({
+                mensaje: 'no se encontro la nota',
+                error: error
+            });
+        }
+        res.json(notaDb);
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ocurrio un error',
+            error
+        });
+    }
+})
+
 module.exports = router;
