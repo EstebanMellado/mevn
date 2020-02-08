@@ -13,7 +13,7 @@ router.post('/nueva-nota', async (req, res) => {
         return res.status(500).json({
             mensaje: 'ocurrio un error',
             error
-        })
+        });
     }
 });
 
@@ -21,14 +21,25 @@ router.get('/nota/:id', async (req, res) => {
     const notaId = req.params.id;
     try {
         const notaDb = await Nota.findOne({ _id: notaId });
-        console.log(notaDb);
         res.json(notaDb);
     } catch (error) {
         return res.status(500).json({
             mensaje: 'ocurrio un error',
             error
-        })
+        });
     }
-})
+});
+
+router.get('/notas', async (req, res) => {
+    try {
+        const notasDb = await Nota.find();
+        res.json(notasDb);
+    } catch (error) {
+        return res.status(500).json({
+            mensaje: 'ocurrio un error',
+            error
+        });
+    }
+});
 
 module.exports = router;
