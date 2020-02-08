@@ -27,6 +27,8 @@ app.get('/hola', function (req, res) {
     res.send('Hola mundoloco');
 });
 
+app.use('/api', require('./routes/nota'));
+
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
