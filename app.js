@@ -7,7 +7,7 @@ const history = require('connect-history-api-fallback');
 const mongoose = require('mongoose');
 
 // const uri = 'mongodb://localhost:27017/mevn';
-const uri = 'mongodb+srv://mevn-user:ZgsQZzf1oSBzQWl7@mevn-db-7tfdf.mongodb.net/mevndb?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://<username>:<password>7@mevn-db-7tfdf.mongodb.net/mevndb?retryWrites=true&w=majority';
 const options = {
     useNewUrlParser: true,
     useCreateIndex: true,
